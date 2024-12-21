@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>URL Checker</title>
+</head>
+<body>
+    <h1>URL Checker</h1>
+    <form action="/check" method="POST">
+        <input type="text" name="url" placeholder="Enter a URL" required>
+        <button type="submit">Check URL</button>
+    </form>
+
+    {% if url %}
+        <h3>Results for: {{ url }}</h3>
+        {% if status == 'Invalid URL or unreachable' %}
+            <p style="color: red;">Error: {{ status }}</p>
+        {% else %}
+            <p>Status Code: {{ status }}</p>
+        {% endif %}
+    {% endif %}
+</body>
+</html>
